@@ -34,38 +34,46 @@ const useDataApi = (initialUrl, initialData) => {
   return { data, isLoading, isError, doGet };
 };
 
-function PostCanvas() {
+function App() {
   const [query, setQuery] = useState('redux');
   const { data, isLoading, isError, doGet } = useDataApi(
     'http://hn.algolia.com/api/v1/search?query=redux',
     { hits: [] },
   );
-  axios.all([
-    axios.get('http://quotes.rest/qod.json'),
-    axios.get('https://picsum.photos/200/300/?random ')
-  ])
-  .then(axios.spread((quote, picture) => {
-    // do something with both responses
-    console.log([quote, picture])
-
-  }));
-
 
   return (
     <Fragment>
-
+      <form
+        onSubmit={event =>
+          doGet(
+            event,
+            `http://hn.algolia.com/api/v1/search?query=${query}`,
+          )
+        }
+      >
+        <input
+          type="text"
+          value={query}
+          onChange={event => setQuery(event.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
 
       {isError && <div>Something went wrong ...</div>}
 
       {isLoading ? (
         <div>Loading ...</div>
       ) : (
-        console.log('fragment')
-
-
+        <ul>
+          {data.hits.map(item => (
+            <li key={item.objectID}>
+              <a href={item.url}>{item.title}</a>
+            </li>
+          ))}
+        </ul>
       )}
     </Fragment>
   );
 }
 
-export default PostCanvas;
+export default App;

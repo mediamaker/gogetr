@@ -1,7 +1,16 @@
+const dotenv = require ('dotenv')
+
+if (process.env.NODE_ENV !== 'production'){
+  dotenv.config()
+}
+
+typeof window !== 'undefined' && window.whaterver-you-need
+
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `gogetr inspirational social media posts`,
+    description: "Stand out and save money on social media marketing with gogetr, your secret weapon to creating awesome, inspiring posts.",
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -25,6 +34,14 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
