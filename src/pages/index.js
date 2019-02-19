@@ -13,8 +13,7 @@ const IndexPage = () => (
     <p>Make an IMPACT. Save time and money.</p>
     <p>gogetr - instantly generate inspirational facebook and instagram posts</p>
     <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}></div>
-    <PostCanvas> 
-    </PostCanvas>
+    <PostCanvas/> 
   </Layout>
 );
 

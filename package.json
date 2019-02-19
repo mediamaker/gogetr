@@ -25,7 +25,8 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
-    "react-pixi-fiber": "^0.7.0"
+    "react-pixi-fiber": "^0.7.0",
+    "unsplash-js": "^4.8.0"
   },
   "keywords": [
     "gatsby"
@@ -44,5 +45,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "reactotron-react-js": "^2.1.5"
   }
 }
