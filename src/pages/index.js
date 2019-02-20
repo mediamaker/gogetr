@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
@@ -10,8 +9,8 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>gogetr</h1>
-    <p>Make an IMPACT. Save time and money.</p>
-    <p>gogetr - instantly generate inspirational facebook and instagram posts</p>
+    <p>Make an IMPACT now</p>
+    <p>gogetr - Your motivational, inspirational post generating social media marketing tool.</p>
     <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}></div>
     <PostCanvas/> 
   </Layout>
