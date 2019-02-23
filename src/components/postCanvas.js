@@ -5,15 +5,15 @@ import * as PIXI from "pixi.js";
 // import Unsplash from 'unsplash-js';
  
 const QUOTES_AUTH_TOKEN = "dCMlAV8KJo78QHWt5B5YugeF";
-const imageURL = 'https://picsum.photos/800/800'
-// "https://api.unsplash.com/photos/random/?client_id=81a8941ee89933005e14ec94eff0c572a97bd369869025f90a2e3b7f59fb1619"
+// const imageURL = 'https://picsum.photos/800/800'
+const imageURL =  "https://api.unsplash.com/photos/random/?client_id=81a8941ee89933005e14ec94eff0c572a97bd369869025f90a2e3b7f59fb1619"
 
 function PostCanvas() {
   const [data, setQuote] = useState({
     quote: "Getting some good juju going..."
     
   });
-  const [returnedImage, setImage] = useState(null);
+  const [returnedImage, setImage] = useState({});
   const [textStyle, setTextStyle] = useState({});
   let loader = new PIXI.loaders.Loader();
   loader.add('mySprite', imageURL);
@@ -26,9 +26,9 @@ function PostCanvas() {
   useEffect(() => {
     fetchTextStyle();
   }, []);
-  // useEffect(() => {
-  //   fetchImage();
-  // }, []);
+  useEffect(() => {
+    fetchImage();
+  }, [loader.resources.mySprite.url]);
 
   const fetchTextStyle = async () => {
     const style = new PIXI.TextStyle({
@@ -57,14 +57,16 @@ function PostCanvas() {
     setQuote(result.data.contents.quote);
   };
 
-  //get an image
-  // const fetchImage = async () => {
-  //   const imageResult = await axios({
-  //     url:
-  //       imageURL
-  //   });
-  //   setImage(imageResult.data.urls.regular);
-  // };
+  const fetchImage = async () => {
+    const imageResult = await axios({
+      url:
+        imageURL
+    });
+    console.log(imageResult.data.urls.regular)
+    loader.reset()
+    loader.add('mySprite', imageResult.data.urls.regular);
+    // loader.resources.mySprite.url = imageResult.data.urls.regular
+  };
 
   return (
     <>
@@ -77,6 +79,7 @@ function PostCanvas() {
         </Stage>
       </Suspense>
       <button onClick={e => fetchQuote()}>Change Quote</button>
+      <button onClick={e => fetchImage()}>Change Image</button>
     </>
   );
 }
