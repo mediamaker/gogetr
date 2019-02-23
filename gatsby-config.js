@@ -1,17 +1,17 @@
-const dotenv = require ('dotenv')
+const dotenv = require("dotenv");
 
-if (process.env.NODE_ENV !== 'production'){
-  dotenv.config()
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
 }
 
-typeof window !== 'undefined' && window.whaterver-you-need
-
+typeof window !== "undefined" && window.whaterver - you - need;
 
 module.exports = {
   siteMetadata: {
     title: `gogetr inspirational social media posts`,
-    description: "Stand out and save money on social media marketing with gogetr, your secret weapon to creating awesome, inspiring posts.",
-    author: `@gatsbyjs`,
+    description:
+      "Stand out and save money on social media marketing with gogetr, your secret weapon to creating awesome, inspiring posts.",
+    author: `@gatsbyjs`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,8 +19,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -33,19 +33,12 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
+        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+      }
+    }
 
-    {
-      resolve: 'gatsby-source-contentful',
-      options: {
-      spaceId: process.env.CONTENTFUL_SPACE_ID,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
-  ],
-}
+  ]
+};
