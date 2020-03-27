@@ -8,9 +8,8 @@ import PostCanvas from "../components/postCanvas"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>gogetr</h1>
-    <p>Make an IMPACT now</p>
-    <p>gogetr - Your motivational, inspirational post generating social media marketing tool.</p>
+    <h1>Make an IMPACT</h1>
+    <p>Inspirational post generator & social media marketing tool</p>
     <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}></div>
     <PostCanvas/> 
   </Layout>

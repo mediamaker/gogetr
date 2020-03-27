@@ -8,20 +8,13 @@ typeof window !== "undefined" && window.whaterver - you - need;
 
 module.exports = {
   siteMetadata: {
-    title: `gogetr inspirational social media posts`,
+    title: `gogetr`,
     description:
       "Stand out and save money on social media marketing with gogetr, your secret weapon to creating awesome, inspiring posts.",
     author: `@gatsbyjs`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`
-      }
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
